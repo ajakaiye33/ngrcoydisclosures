@@ -20,7 +20,7 @@ def corporate_disclosure(url=url):
     Issue a GET request and scrape data from xml
     """
     # collect data
-    #url = str(url)
+    url = str(url)
 
     nse_company_disclosures = []
     try:
