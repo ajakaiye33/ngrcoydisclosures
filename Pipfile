@@ -12,6 +12,7 @@ requests = "*"
 configparser = "*"
 beautifulsoup4 = "*"
 lxml = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.9"

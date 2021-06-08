@@ -60,9 +60,26 @@ def tojson():
     except Exception as err:
         print(err)
 
+# save insider dealings notifications to csv
+
+
+def insider_deals():
+    df = pd.DataFrame(data)
+    insider_dealings = df[df['news_class'] == "Directors Dealings"]
+    insider_dealings.to_csv("./docs/insider-dealings.csv", index=False)
+
+
+# save financial statements notifications to csv
+def fin_statement():
+    df = pd.DataFrame(data)
+    fin_statements = df[df['news_class'] == "Financial Statements"]
+    fin_statements.to_csv("./docs/financial-statement.csv", index=False)
+
 
 def main():
     tojson()
+    insider_deals()
+    fin_statement()
 
 
 if __name__ == "__main__":
