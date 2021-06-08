@@ -1,4 +1,4 @@
-name: scrape-online-newspapers-for-news
+name: nse-company-disclosures-notifications
 
 on:
   push:
