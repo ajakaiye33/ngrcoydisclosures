@@ -39,9 +39,9 @@ jobs:
 
       - name: commit & push files
         run: |
-          git config --local user.email ajakzhedgar@gmail.com
-          git config --local user.name ajakaiye33
+          git config --local user.email "${{ secrets.GIT_USER_EMAIL }}"
+          git config --local user.name "${{ secrets.GIT_USER_NAME }}"
           git add -A
           timestamp=$(date --rfc-2822)
-          git commit -m "update data:${timestamp}" || exit 0
+          git commit -m "update data: ${timestamp}" || exit 0
           git push
