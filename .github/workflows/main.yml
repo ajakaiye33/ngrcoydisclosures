@@ -22,20 +22,13 @@ jobs:
       - name: install pipenv and dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --upgrade pipenv wheel
-      - id: cache-pipenv
-        uses: actions/cache@v3
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
 
       - name: Install dependencies
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
-          pipenv install --dev
+          pip install -r requirements.txt 
       - name: execute py script # run ngrnewscorpus.py to get the latest data
 
-        run: pipenv run python nse_disclosure.py
+        run: python nse_disclosure.py
 
       - name: commit & push files
         run: |
